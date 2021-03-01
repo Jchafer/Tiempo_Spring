@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2021 12:39:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="project.model.Dia" table="dia" catalog="predicciondb" optimistic-lock="version">
+        <id name="idDia" type="java.lang.Integer">
+            <column name="idDia" />
+            <generator class="identity" />
+        </id>
+        <property name="poblacion" type="string">
+            <column name="poblacion" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="tempMaxima" type="string">
+            <column name="tempMaxima" not-null="true" />
+        </property>
+        <property name="tempMinima" type="string">
+            <column name="tempMinima" not-null="true" />
+        </property>
+        <set name="cotanieves" table="cotanieve" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idDia" not-null="true" />
+            </key>
+            <one-to-many class="project.model.Cotanieve" />
+        </set>
+    </class>
+</hibernate-mapping>

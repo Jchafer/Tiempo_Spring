@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-feb-2021 12:39:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="project.model.Cotanieve" table="cotanieve" catalog="predicciondb" optimistic-lock="version">
+        <id name="idCotaNieve" type="java.lang.Integer">
+            <column name="idCotaNieve" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="dia" class="project.model.Dia" fetch="select">
+            <column name="idDia" not-null="true" />
+        </many-to-one>
+        <property name="periodo" type="string">
+            <column name="periodo" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
